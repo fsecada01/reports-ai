@@ -17,3 +17,4 @@ This is the documentation for the Reports AI Django module. This module allows y
 
 - **[Installation & Configuration](./configuration.md)**: Learn how to install and configure the module.
 - **[Usage](./usage.md)**: Find out how to use the module to generate reports.
+- **[API Reference](./reports_ai.html)**: Explore the auto-generated API docs.

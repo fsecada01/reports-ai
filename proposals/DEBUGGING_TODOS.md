@@ -1,4 +1,6 @@
-# DEBUGGING_TODOS.MD
+# Debugging Todos (Archived)
+
+> Note: Archived debugging notes retained for historical reference.
 
 ## Current Task: Generate API Documentation via `pdoc`
 

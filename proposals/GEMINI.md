@@ -1,5 +1,7 @@
 # Architect and Bootstrap a Django Report Module with LLM and Git Integration
 
+> Note: Archived planning document. Kept in `proposals/` for reference.
+
 ## Objective
 
 Act as a senior software architect and full-stack developer. Your task is to plan, architect, and provide an implementation plan for a new Django module named `reports_ai`. This module will generate summary reports by analyzing Git commit history and leveraging a Large Language Model (LLM).

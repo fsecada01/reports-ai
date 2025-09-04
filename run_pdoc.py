@@ -13,4 +13,13 @@ sys.path.append(site_packages_path)
 
 django.setup()
 
-pdoc.pdoc('reports_ai', output_directory=Path('docs/api'))
+# Build docs: include API and Markdown pages. Place index.md last
+# so it becomes the site homepage (docs/api/index.html).
+inputs = [
+    'reports_ai',
+    'docs/usage.md',
+    'docs/configuration.md',
+    'docs/index.md',
+]
+
+pdoc.pdoc(*inputs, output_directory=Path('docs/api'))

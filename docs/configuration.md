@@ -1,3 +1,4 @@
+# [Home](./index.html) | [API](./reports_ai.html)
 
 # Installation & Configuration
 

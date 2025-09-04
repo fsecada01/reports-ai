@@ -153,3 +153,29 @@ git push origin vX.Y.Z
 ```
 
 CI will build artifacts, create a GitHub Release, and publish to PyPI (requires `PYPI_API_TOKEN` secret). See CONTRIBUTING.md for details.
+
+## TODO (Beta)
+
+- **API stability**: finalize public interfaces, document breaking changes,
+  add deprecation path where needed.
+- **Tests (≥80% coverage)**: add unit tests for services, models, and admin
+  actions; include basic integration for report generation flow.
+- **Error handling**: tighten exception handling in tasks/services; surface
+  actionable errors in the admin; add structured logging.
+- **Docs templates**: replace HTML post-processing with pdoc template
+  overrides (`PDOC_TEMPLATE_DIR`), version-pinned to current pdoc.
+- **Docs templating setup**: stub `docs/pdoc_templates/` (or `docs/templates/`),
+  wire `PDOC_TEMPLATE_DIR` in the docs build, and migrate current navbar,
+  footer, and head injections into Jinja overrides.
+- **Docs fonts**: add custom fonts (e.g., Inter + JetBrains Mono) with
+  local fallbacks; ensure no network fetch in CI/Pages.
+- **Active nav highlighting**: highlight the current page in the top navbar
+  across docs pages.
+- **Docs content**: expand guides (configuration, usage, troubleshooting),
+  add admin screenshots and examples; improve landing page.
+- **CI controls**: keep deploys on `main` only; add `workflow_dispatch` for
+  manual releases; require status checks before release deploy.
+- **Security & config**: validate required env vars at startup; ensure clone
+  path permissions and cleanup; re-verify no secrets in repo.
+- **Performance**: cache/clobber strategy for repo clones; tune Celery
+  concurrency and task timeouts.
