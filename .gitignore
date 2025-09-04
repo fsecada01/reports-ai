@@ -82,6 +82,7 @@ staticfiles/
 static/
 
 # Environments
+!.env.example
 .env
 .env.*
 .venv
