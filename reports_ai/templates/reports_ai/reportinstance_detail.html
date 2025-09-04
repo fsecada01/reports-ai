@@ -1,0 +1,13 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+    <h1>{{ report.title }}</h1>
+    <p><strong>Status:</strong> {{ report.get_report_status_display }}</p>
+    <p><strong>Report Type:</strong> {{ report.report_type }}</p>
+    <p><strong>Git Repo Path:</strong> {{ report.git_repo_path }}</p>
+    <p><strong>Last Commit Hash:</strong> {{ report.last_commit_hash }}</p>
+    
+    <h2>Generated Report</h2>
+    <pre>{{ report.generated_report }}</pre>
+
+    <a href="{% url 'admin:generate_report' report.pk %}">Generate/Regenerate Report</a>
+{% endblock %}

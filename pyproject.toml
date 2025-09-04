@@ -1,0 +1,61 @@
+[project]
+name = "reports_ai"
+version = "0.1.0"
+description = "A Django module for generating reports from Git history using AI."
+authors = [
+    {name = "Francis Secada", email = "francis.secada@gmail.com"},
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "Django>=4.2",
+    "GitPython>=3.1",
+    "celery>=5.3",
+    "django-ai-assistant>=0.1.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.urls]
+Repository = "https://github.com/fsecada01/reports_ai"
+
+[project.optional-dependencies]
+dev = [
+    "black>=23.11",
+    "isort>=5.12",
+    "ruff>=0.1",
+    "jupyterlab>=4.0",
+    "jupyterlab-code-formatter>=2.2",
+    "pre-commit>=3.5",
+]
+doc = [
+    "pdoc>=15.0.4",
+]
+
+[tool.black]
+line-length = 80
+
+[tool.isort]
+profile = "black"
+line_length = 80
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "C",  # flake8-comprehensions
+    "B",  # flake8-bugbear
+]
+ignore = [
+    "E501",  # line too long, handled by black
+]
+
+[tool.ruff.mccabe]
+max-complexity = 10
+
+[tool.setuptools]
+packages = ['reports_ai']
