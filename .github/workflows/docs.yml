@@ -49,7 +49,8 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name == 'push'
         with:
-          path: docs/
+          # Publish the pdoc-generated site root which contains index.html
+          path: docs/api/
 
   deploy:
     needs: build
