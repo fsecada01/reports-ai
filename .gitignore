@@ -5,6 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
+*.pyd
 
 # Distribution / packaging
 .Python
@@ -20,11 +21,15 @@ parts/
 sdist/
 var/
 wheels/
+*.whl
 share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 pip-wheel-metadata/
+__pypackages__/
+.pdm-build/
+.pybuild/
 
 # Installer logs
 pip-log.txt
@@ -61,6 +66,7 @@ dmypy.json
 .idea/
 .vscode/
 *.iml
+.python-version
 
 # OS files
 .DS_Store
