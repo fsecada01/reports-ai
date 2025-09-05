@@ -23,7 +23,7 @@ Feel free to ask questions and share your work on our [Discord Server](https://d
 
 ## Contributing
 
-You're welcome to contribute with Django AI Assistant! Please feel free to tackle existing [issues](https://github.com/vintasoftware/django-ai-assistant/issues). If you have a new idea, please create a thread on [Discussions](https://github.com/vintasoftware/django-ai-assistant/discussions). 
+You're welcome to contribute with Django AI Assistant! Please feel free to tackle existing [issues](https://github.com/vintasoftware/django-ai-assistant/issues). If you have a new idea, please create a thread on [Discussions](https://github.com/vintasoftware/django-ai-assistant/discussions).
 
 Check our [contributing guide](CONTRIBUTING.md) to learn more about how to develop and test the project locally, before opening a pull request.
 

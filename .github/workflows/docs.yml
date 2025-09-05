@@ -44,6 +44,13 @@ jobs:
         env:
           SQL_DIALECT: sqlite
 
+      - name: Inspect generated docs
+        if: github.event_name == 'push'
+        run: |
+          ls -la docs/api || true
+          head -n 20 docs/api/index.html || true
+          head -n 20 docs/api/reports_ai.html || true
+
       - uses: actions/configure-pages@v4
 
       - uses: actions/upload-pages-artifact@v3

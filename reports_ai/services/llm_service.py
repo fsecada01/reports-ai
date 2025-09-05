@@ -1,5 +1,7 @@
 from reports_ai.ai_assistants import ReportAssistant
+
 from .git_service import GitService
+
 
 class LLMService:
     """A service for interacting with a Large Language Model using django-ai-assistant."""
@@ -35,5 +37,5 @@ class LLMService:
         )
         if last_commit_hash:
             prompt += f" The last commit hash is {last_commit_hash}."
-        
+
         return self.assistant.run(prompt)

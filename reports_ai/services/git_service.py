@@ -1,7 +1,9 @@
-import git
 import os
-from django.conf import settings
 from urllib.parse import urlparse
+
+import git
+from django.conf import settings
+
 
 class GitService:
     """A service for interacting with Git repositories."""
@@ -20,8 +22,12 @@ class GitService:
 
     def _get_clone_path(self) -> str:
         """Gets the local path to clone the repository to."""
-        clone_base_path = getattr(settings, 'REPORTS_AI_CLONE_PATH', 'git_repos')
-        repo_name = os.path.splitext(os.path.basename(urlparse(self.repo_url).path))[0]
+        clone_base_path = getattr(
+            settings, "REPORTS_AI_CLONE_PATH", "git_repos"
+        )
+        repo_name = os.path.splitext(
+            os.path.basename(urlparse(self.repo_url).path)
+        )[0]
         return os.path.join(clone_base_path, repo_name)
 
     def _get_or_clone_repo(self) -> git.Repo:
@@ -32,7 +38,9 @@ class GitService:
             return repo
         else:
             if self.token:
-                clone_url = self.repo_url.replace('https://', f"https://{self.token}@")
+                clone_url = self.repo_url.replace(
+                    "https://", f"https://{self.token}@"
+                )
             else:
                 clone_url = self.repo_url
             return git.Repo.clone_from(clone_url, self.clone_path)
@@ -41,7 +49,9 @@ class GitService:
         """Gets the current HEAD commit hash."""
         return self.repo.head.commit.hexsha
 
-    def get_commits_since(self, last_commit_hash: str | None) -> list[git.Commit]:
+    def get_commits_since(
+        self, last_commit_hash: str | None
+    ) -> list[git.Commit]:
         """Gets all commits since a given commit hash."""
         if last_commit_hash:
             return list(self.repo.iter_commits(f"{last_commit_hash}..HEAD"))

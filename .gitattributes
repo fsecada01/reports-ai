@@ -1,0 +1,20 @@
+# Normalize line endings to LF for source files to avoid format hook loops on Windows
+*.py text eol=lf
+*.pyi text eol=lf
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.cfg text eol=lf
+*.ini text eol=lf
+
+# Keep binary assets untouched
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg text eol=lf
+*.ico binary
+
+# Markdown/docs can use platform defaults
+*.md text

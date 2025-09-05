@@ -1,19 +1,63 @@
 repos:
+  # General sanity checks and whitespace/EOF fixes
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        exclude: bin/
+        args: ['--maxkb=1000']
+      - id: check-ast
+      - id: check-builtin-literals
+      - id: check-byte-order-marker
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-vcs-permalinks
+      - id: check-xml
+      - id: check-yaml
+      - id: debug-statements
+        exclude: tests/
+      - id: destroyed-symlinks
+      - id: detect-aws-credentials
+        args: ["--allow-missing-credentials"]
+      - id: detect-private-key
+      - id: end-of-file-fixer
+        files: \.(py|sh|rst|yml|yaml)$
+      - id: pretty-format-json
+        args: ["--autofix"]
+      - id: sort-simple-yaml
+      - id: trailing-whitespace
+
+  # Ruff: linter and formatter (uses pyproject.toml settings)
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.6.9
+    # Keep in sync with your local/CI expectations
+    rev: v0.11.11
     hooks:
       - id: ruff
         args: ["--fix"]
-      - id: ruff-format
 
+  # Black: code formatter
   - repo: https://github.com/psf/black
-    rev: 24.8.0
+    rev: 25.1.0
     hooks:
       - id: black
+        exclude: tests/
 
+  # isort: import sorter (kept for consistency with existing style)
   - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
+    rev: 6.0.1
     hooks:
       - id: isort
         args: ["--profile=black", "--line-length=80"]
 
+  # Django template formatter (safe for *.html in this repo)
+  - repo: https://github.com/rtts/djhtml
+    rev: '3.0.8'
+    hooks:
+      - id: djhtml
+        files: \.(html)$
